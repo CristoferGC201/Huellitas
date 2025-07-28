@@ -1,0 +1,172 @@
+[
+  {
+    "model": "api.mascota",
+    "pk": 1,
+    "fields": {
+      "nombre": "Firulais",
+      "tipo": "perro",
+      "raza": "Labrador",
+      "edad": 3,
+      "tamano": "Grande",
+      "sexo": "Macho",
+      "descripcion": "Muy amigable",
+      "foto_url": "https://place-puppy.com/300x300",
+      "disponible": true,
+      "centro": 1,
+      "estado_salud": "Desconocido"
+    }
+  },
+  {
+    "model": "api.mascota",
+    "pk": 2,
+    "fields": {
+      "nombre": "Max",
+      "tipo": "perro",
+      "raza": "Pitbull",
+      "edad": 4,
+      "tamano": "Mediano",
+      "sexo": "Macho",
+      "descripcion": "Fuerte y leal",
+      "foto_url": "https://place-puppy.com/301x301",
+      "disponible": true,
+      "centro": 1,
+      "estado_salud": "Desconocido"
+    }
+  },
+  {
+    "model": "api.mascota",
+    "pk": 3,
+    "fields": {
+      "nombre": "Luna",
+      "tipo": "perro",
+      "raza": "Golden Retriever",
+      "edad": 2,
+      "tamano": "Grande",
+      "sexo": "Hembra",
+      "descripcion": "Cariñosa y tranquila",
+      "foto_url": "https://place-puppy.com/302x302",
+      "disponible": true,
+      "centro": 2,
+      "estado_salud": "Desconocido"
+    }
+  },
+  {
+    "model": "api.mascota",
+    "pk": 4,
+    "fields": {
+      "nombre": "Rocky",
+      "tipo": "perro",
+      "raza": "Boxer",
+      "edad": 5,
+      "tamano": "Grande",
+      "sexo": "Macho",
+      "descripcion": "Protector y enérgico",
+      "foto_url": "https://place-puppy.com/303x303",
+      "disponible": true,
+      "centro": 2,
+      "estado_salud": "Desconocido"
+    }
+  },
+  {
+    "model": "api.mascota",
+    "pk": 5,
+    "fields": {
+      "nombre": "Toby",
+      "tipo": "perro",
+      "raza": "Beagle",
+      "edad": 1,
+      "tamano": "Pequeño",
+      "sexo": "Macho",
+      "descripcion": "Muy curioso",
+      "foto_url": "https://place-puppy.com/304x304",
+      "disponible": true,
+      "centro": 3,
+      "estado_salud": "Desconocido"
+    }
+  },
+  {
+    "model": "api.mascota",
+    "pk": 6,
+    "fields": {
+      "nombre": "Michi",
+      "tipo": "gato",
+      "raza": "Siamés",
+      "edad": 2,
+      "tamano": "Pequeño",
+      "sexo": "Hembra",
+      "descripcion": "Tranquila y cariñosa",
+      "foto_url": "https://placekitten.com/300/300",
+      "disponible": true,
+      "centro": 1,
+      "estado_salud": "Desconocido"
+    }
+  },
+  {
+    "model": "api.mascota",
+    "pk": 7,
+    "fields": {
+      "nombre": "Pelusa",
+      "tipo": "gato",
+      "raza": "Persa",
+      "edad": 3,
+      "tamano": "Pequeño",
+      "sexo": "Hembra",
+      "descripcion": "Esponjosa y dormilona",
+      "foto_url": "https://placekitten.com/301/301",
+      "disponible": true,
+      "centro": 1,
+      "estado_salud": "Desconocido"
+    }
+  },
+  {
+    "model": "api.mascota",
+    "pk": 8,
+    "fields": {
+      "nombre": "Nube",
+      "tipo": "gato",
+      "raza": "Angora",
+      "edad": 1,
+      "tamano": "Pequeño",
+      "sexo": "Hembra",
+      "descripcion": "Muy suave",
+      "foto_url": "https://placekitten.com/302/302",
+      "disponible": true,
+      "centro": 2,
+      "estado_salud": "Desconocido"
+    }
+  },
+  {
+    "model": "api.mascota",
+    "pk": 9,
+    "fields": {
+      "nombre": "Tom",
+      "tipo": "gato",
+      "raza": "Criollo",
+      "edad": 4,
+      "tamano": "Mediano",
+      "sexo": "Macho",
+      "descripcion": "Juguetón y audaz",
+      "foto_url": "https://placekitten.com/303/303",
+      "disponible": true,
+      "centro": 2,
+      "estado_salud": "Desconocido"
+    }
+  },
+  {
+    "model": "api.mascota",
+    "pk": 10,
+    "fields": {
+      "nombre": "Gato con Botas",
+      "tipo": "gato",
+      "raza": "Europeo",
+      "edad": 5,
+      "tamano": "Grande",
+      "sexo": "Macho",
+      "descripcion": "Aventurero y curioso",
+      "foto_url": "https://placekitten.com/304/304",
+      "disponible": true,
+      "centro": 3,
+      "estado_salud": "Desconocido"
+    }
+  }
+]

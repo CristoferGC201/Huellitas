@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Registro - Huellitas</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'adopcion_perros/css/estilos_formularios.css' %}" />
+</head>
+<body>
+  <div class="container">
+    <h1>🐾 Huellitas</h1>
+    <div class="form-box">
+      <h2>Registro</h2>
+      
+      <form method="POST">
+        {% csrf_token %}
+        <input type="text" name="username" placeholder="Nombre de usuario" required />
+        <input type="email" name="email" placeholder="Correo electrónico" required />
+        <input type="password" name="password" placeholder="Contraseña" required />
+        <button type="submit">Crear cuenta</button>
+      </form>
+
+      {% for message in messages %}
+  <p class="{% if 'error' in message.tags %}error-message
+            {% elif 'success' in message.tags %}success-message
+            {% elif 'warning' in message.tags %}warning-message
+            {% elif 'info' in message.tags %}info-message
+            {% else %}info-message{% endif %}">
+    {{ message }}
+  </p>
+{% endfor %}
+
+
+      <p class="login-link">¿Ya tienes cuenta? <a href="{% url 'login' %}">Inicia sesión</a></p>
+    </div>
+  </div>
+</body>
+</html>

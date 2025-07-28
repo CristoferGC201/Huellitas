@@ -1,0 +1,62 @@
+{% extends 'adopcion_perros/base.html' %}
+{% load static %}
+
+{% block content %}
+  <h1 style="text-align:center; margin:20px 0;">🐾 Catálogo de Mascotas en Adopción 🐾</h1>
+
+  <h2>🐶 Perros</h2>
+  <div class="catalogo-container" style="display:flex; flex-wrap:wrap; gap:20px; justify-content:center;">
+    {% for perro in perros %}
+      <div class="card" style="width:260px; padding:16px; border:1px solid #ddd; border-radius:8px; text-align:center; background:#fff; box-shadow:2px 2px 8px rgba(0,0,0,0.1);">
+        {% if perro.foto %}
+          <img src="{{ perro.foto.url }}" alt="{{ perro.nombre }}" style="width:100%; height:180px; object-fit:cover; border-radius:4px;">
+        {% elif perro.foto_url %}
+          <img src="{{ perro.foto_url }}" alt="{{ perro.nombre }}" style="width:100%; height:180px; object-fit:cover; border-radius:4px;">
+        {% else %}
+          <img src="{% static 'adopcion_perros/img/mascotas-placeholder.png' %}" alt="Sin imagen" style="width:100%; height:180px; object-fit:cover; border-radius:4px;">
+        {% endif %}
+        <h3>{{ perro.nombre }}</h3>
+        <p><strong>Raza:</strong> {{ perro.raza }}</p>
+        <p><strong>Edad:</strong> {{ perro.edad }} años</p>
+        <p><strong>Tamaño:</strong> {{ perro.tamano }}</p>
+        <p><strong>Sexo:</strong> {{ perro.sexo }}</p>
+        <p><strong>Estado de Salud:</strong> {{ perro.estado_salud }}</p>
+        <p><strong>Fundación:</strong> {{ perro.centro.nombre }}</p>
+        {% if perro.descripcion %}
+          <p style="font-size:14px; color:#555;">{{ perro.descripcion }}</p>
+        {% endif %}
+        <p><strong>Disponible:</strong> {{ perro.disponible|yesno:"Sí, No" }}</p>
+      </div>
+    {% empty %}
+      <p>No hay perros disponibles.</p>
+    {% endfor %}
+  </div>
+
+  <h2 style="margin-top:40px;">🐱 Gatos</h2>
+  <div class="catalogo-container" style="display:flex; flex-wrap:wrap; gap:20px; justify-content:center;">
+    {% for gato in gatos %}
+      <div class="card" style="width:260px; padding:16px; border:1px solid #ddd; border-radius:8px; text-align:center; background:#fff; box-shadow:2px 2px 8px rgba(0,0,0,0.1);">
+        {% if gato.foto %}
+          <img src="{{ gato.foto.url }}" alt="{{ gato.nombre }}" style="width:100%; height:180px; object-fit:cover; border-radius:4px;">
+        {% elif gato.foto_url %}
+          <img src="{{ gato.foto_url }}" alt="{{ gato.nombre }}" style="width:100%; height:180px; object-fit:cover; border-radius:4px;">
+        {% else %}
+          <img src="{% static 'adopcion_perros/img/mascotas-placeholder.png' %}" alt="Sin imagen" style="width:100%; height:180px; object-fit:cover; border-radius:4px;">
+        {% endif %}
+        <h3>{{ gato.nombre }}</h3>
+        <p><strong>Raza:</strong> {{ gato.raza }}</p>
+        <p><strong>Edad:</strong> {{ gato.edad }} años</p>
+        <p><strong>Tamaño:</strong> {{ gato.tamano }}</p>
+        <p><strong>Sexo:</strong> {{ gato.sexo }}</p>
+        <p><strong>Estado de Salud:</strong> {{ gato.estado_salud }}</p>
+        <p><strong>Fundación:</strong> {{ gato.centro.nombre }}</p>
+        {% if gato.descripcion %}
+          <p style="font-size:14px; color:#555;">{{ gato.descripcion }}</p>
+        {% endif %}
+        <p><strong>Disponible:</strong> {{ gato.disponible|yesno:"Sí, No" }}</p>
+      </div>
+    {% empty %}
+      <p>No hay gatos disponibles.</p>
+    {% endfor %}
+  </div>
+{% endblock %}

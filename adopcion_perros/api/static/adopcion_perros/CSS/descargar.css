@@ -1,0 +1,83 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #f0d8f4;
+  font-family: 'Inter', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  text-align: center;
+  color: #4b006e;
+}
+
+.container {
+  max-width: 480px;
+  padding: 40px 20px;
+  background-color: #2b2b2b;
+  border-radius: 20px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  color: white;
+}
+
+h1 {
+  font-size: 2.3rem;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  font-size: 1rem;
+  color: #dddddd;
+  margin-bottom: 25px;
+}
+
+.app-image img {
+  width: 120px;
+  margin-bottom: 30px;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px;
+  border-radius: 12px;
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+
+.btn img {
+  width: 24px;
+  height: 24px;
+}
+
+.btn.android {
+  background-color: #3ddc84;
+}
+
+.btn.android:hover {
+  background-color: #30b96b;
+}
+
+.btn.ios {
+  background-color: #9999ff;
+}
+
+.btn.ios:hover {
+  background-color: #7f7ff2;
+}
+
+.note {
+  font-size: 0.9rem;
+  color: #bbbbbb;
+}

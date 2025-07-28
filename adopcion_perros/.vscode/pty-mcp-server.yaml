@@ -1,0 +1,11 @@
+logDir : 'c:\Users\jahel\Downloads\programados\ADOPCION\adopcion_perros\.vscode\pty-mcp-server\logs'
+logLevel : 'Debug'
+toolsDir: 'c:\Users\jahel\Downloads\programados\ADOPCION\adopcion_perros\.vscode\pty-mcp-server\tools'
+promptsDir: 'c:\Users\jahel\Downloads\programados\ADOPCION\adopcion_perros\.vscode\pty-mcp-server\prompts'
+resourcesDir: 'c:\Users\jahel\Downloads\programados\ADOPCION\adopcion_perros\.vscode\pty-mcp-server\resources'
+prompts:
+  - '> '
+  - ']#'
+  - ']$'
+  - ')?'
+  - 'password:'

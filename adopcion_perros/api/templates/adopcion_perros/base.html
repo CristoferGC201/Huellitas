@@ -1,0 +1,64 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Huellitas{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'adopcion_perros/css/style.css' %}">
+    {% block extra_css %}{% endblock %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <aside class="sidebar">
+        <div class="logo">
+            <a href="{% url 'index' %}"><img src="{% static 'adopcion_perros/img/Logo.png' %}" alt="Logo Huellitas" class="logo-img"></a>
+            <h1>Huellitas</h1>
+            <p>a un toque de tu mejor amigo</p>
+        </div>
+
+
+        <nav class="main-nav">
+            <ul>
+                <li><a href="{% url 'catalogo' %}"><i class="fas fa-paw"></i> Ver todos los animales</a></li>
+                <li><a href="{% url 'fundaciones' %}"><i class="fas fa-users"></i> Ver fundaciones/equipos</a></li>
+                <li><a href="{% url 'noticias' %}"><i class="fas fa-newspaper"></i> Leer noticias</a></li>
+                <li><a href="{% url 'adoptar' %}"><i class="fas fa-dog"></i> Adoptar una mascota</a></li>
+                <li><a href="{% url 'mis_solicitudes' %}"><i class="fas fa-file-alt"></i> Mis Solicitudes</a></li>
+            </ul>
+        </nav>
+
+        <div class="divider"></div>
+
+        <div class="auth-links">
+            <ul>
+                {% if user.is_authenticated %}
+            <li>
+                <span><i class="fas fa-user"></i> Hola, {{ user.username|title }}</span>
+            </li>
+                    <li><a href="{% url 'logout' %}"><i class="fas fa-sign-out-alt"></i> Cerrar sesión</a></li>
+                {% else %}
+                    <li><a href="{% url 'login' %}"><i class="fas fa-user-circle"></i> Iniciar sesión / Regístrate</a></li>
+                {% endif %}
+            </ul>
+        </div>
+
+        <div class="sidebar-footer">
+            <ul>
+                <li><a href="#info"><i class="fas fa-info-circle"></i> Sobre Huachitos</a></li>
+                <li><a href="#descarga"><i class="fas fa-download"></i> Descargar App</a></li>
+            </ul>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        {% block content %}
+        <!-- Aquí irá el contenido de cada página -->
+        {% endblock %}
+    </main>
+</div>
+</body>
+</html>

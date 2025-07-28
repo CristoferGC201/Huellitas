@@ -1,0 +1,143 @@
+/* Estilos generales para formularios (login, registro, adopción) */
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #e8d2f2;
+  font-family: 'Inter', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.container {
+  text-align: center;
+  color: #4b006e;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  font-weight: 800;
+}
+
+.form-box {
+  background-color: #2b2b2b;
+  padding: 40px 30px;
+  border-radius: 20px;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+  color: white;
+  max-width: 400px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.form-box h2 {
+  margin-bottom: 10px;
+  color: #ffffff;
+}
+
+.form-box > p:not(.error-message):not(.success-message):not(.warning-message):not(.info-message) {
+  color: #c4c4c4;
+  font-size: 0.9rem;
+  margin-bottom: 20px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="tel"],
+select,
+textarea {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  background-color: #9c27b0;
+  color: white;
+  border: none;
+  font-size: 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background-color: #7b1fa2;
+}
+
+.registro, .login-link {
+  margin-top: 15px;
+  font-size: 0.9rem;
+}
+
+.registro a, .login-link a {
+  color: #bb86fc;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #bb86fc;
+  background-color: #fafafa;
+  color: #333;
+}
+
+/* ------------------------
+   Estilos para mensajes
+------------------------ */
+
+.success-message,
+.error-message,
+.warning-message,
+.info-message {
+  margin-top: 15px;
+  padding: 12px;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-align: center;
+  color: white;
+}
+
+/* Éxito (verde) */
+.success-message {
+  background-color: #28a745;
+  border: 1px solid #218838;
+}
+
+/* Error (rojo) */
+.error-message {
+  background-color: #dc3545;
+  border: 1px solid #c82333;
+}
+
+/* Advertencia (amarillo) */
+.warning-message {
+  background-color: #ffc107;
+  border: 1px solid #e0a800;
+  color: #212529;
+}
+
+/* Informativo (azul) */
+.info-message {
+  background-color: #17a2b8;
+  border: 1px solid #117a8b;
+}

@@ -1,0 +1,52 @@
+{% extends 'adopcion_perros/base.html' %}
+{% load static %}
+
+{% block content %}
+  <section class="collaborators-section">
+    <div class="section-header">
+      <h3>Fundaciones de Adopción</h3>
+    </div>
+
+    <div class="collaborator-cards-container">
+      {# Fundaciones dinámicas desde la base de datos #}
+      {% for centro in fundaciones %}
+        <div class="collaborator-card">
+          {% if centro.logo %}
+            <img src="{{ centro.logo.url }}" alt="{{ centro.nombre }} Logo" style="width:100px; height:auto; object-fit:contain;" />
+          {% elif centro.nombre == 'Rescue Me Tijuana AC' %}
+            <img src="{% static 'adopcion_perros/img/logos/1000010482.png' %}" alt="{{ centro.nombre }} Logo" style="width:100px; height:auto; object-fit:contain;" />
+          {% elif centro.nombre == 'SOLITOS EN LA CALLE A.C.' %}
+            <img src="{% static 'adopcion_perros/img/logos/1000010484.png' %}" alt="{{ centro.nombre }} Logo" style="width:100px; height:auto; object-fit:contain;" />
+          {% elif centro.nombre == 'Voluntarios TJ' %}
+            <img src="{% static 'adopcion_perros/img/logos/1000010486.png' %}" alt="{{ centro.nombre }} Logo" style="width:100px; height:auto; object-fit:contain;" />
+          {% else %}
+            <img src="{% static 'adopcion_perros/img/logo-placeholder.png' %}" alt="Logo no disponible" style="width:100px; height:auto; object-fit:contain;" />
+          {% endif %}
+          <div class="collaborator-info">
+            <h4>{{ centro.nombre }}</h4>
+            <p><strong>Dirección:</strong> {{ centro.direccion }}</p>
+            <p><strong>Teléfono:</strong> {{ centro.telefono }}</p>
+            <p><strong>Correo:</strong> {{ centro.correo }}</p>
+            {% if centro.instagram %}
+              <p><a href="{{ centro.instagram }}" target="_blank">Visitar Instagram</a></p>
+            {% endif %}
+            {% if centro.ubicacion_mapa %}
+              <p><a href="{{ centro.ubicacion_mapa }}" target="_blank">Ver en mapa</a></p>
+            {% endif %}
+          </div>
+        </div>
+      {% empty %}
+        <p>No hay fundaciones registradas aún.</p>
+      {% endfor %}
+    </div>
+
+    <div class="section-footer" style="margin-top:20px; text-align:center;">
+      <h4>Visita nuestros sitios aliados</h4>
+      <div class="static-cards" style="display:flex; justify-content:center; gap:20px;">
+        <div class="static-card"><a href="https://www.instagram.com/rescueme.tj?igsh=b2xuZDdqcDU3N2Rk" target="_blank">Rescue Me Tijuana AC</a></div>
+        <div class="static-card"><a href="https://www.instagram.com/solitosenlacalle_ac?igsh=MXF2MjV1N2Q0bWlraw==" target="_blank">SOLITOS EN LA CALLE A.C.</a></div>
+        <div class="static-card"><a href="https://www.instagram.com/voluntariostj?igsh=MWlvZDB0MXJob3ltZA==" target="_blank">Voluntarios TJ</a></div>
+      </div>
+    </div>
+  </section>
+{% endblock %}

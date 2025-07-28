@@ -1,0 +1,268 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Huellitas! - Encuentra y da familia</title>
+    <link rel="stylesheet" href="{% static 'adopcion_perros/css/style.css' %}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="logo">
+            <img src="{% static 'adopcion_perros/img/Logo.png' %}" alt="Logo Huellitas" class="logo-img">
+            <h1>Huellitas</h1>
+        <p>a un toque de tu mejor amigo</p>
+        </div>
+
+            <div class="search-bar-sidebar">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Buscador">
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="catalogo.html"><i class="fas fa-paw"></i> Ver todos los animales</a></li>
+                    <li><a href="hairmatch.html"><i class="fas fa-heart"></i> Hair match</a></li>
+                    <li><a href="colaboradores.html"><i class="fas fa-users"></i> Ver fundaciones/equipos</a></li>
+                    <li><a href="{% url 'noticias' %}"><i class="fas fa-newspaper"></i> Leer noticias</a></li>
+                    <li><a href="{% url 'adoptar' %}"><i class="fas fa-dog"></i> Adoptar una mascota</a>
+</li>
+                </ul>
+            </nav>
+            <div class="divider"></div>
+            <div class="auth-links">
+                <ul>
+                    <li><a href="{% url 'login' %}"><i class="fas fa-user-circle"></i> Iniciar sesión / Regístrate</a></li>
+                </ul>
+            </div>
+            <div class="sidebar-footer">
+                <ul>
+                    <li><a href="#info"><i class="fas fa-info-circle"></i> Sobre Huachitos</a></li>
+                    <li><a href="#descarga"><i class="fas fa-download"></i> Descargar App</a></li>
+                    <li><a href="#comentarios"><i class="fas fa-comment-alt"></i> Dejar un comentario</a></li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-moon"></i> Cambiar tema
+                            </a>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="header">
+                <h2>¡BIENVENIDO! 👋</h2>
+                <p>¿Qué te gustaría hacer?</p>
+            </header>
+
+            <section class="animals-section">
+                <div class="section-header">
+                    <h3>Ver animales en adopción</h3>
+                    <a href="#" class="view-all">ver todos</a>
+                </div>
+                <div class="animal-cards-container">
+                    <div class="animal-card">
+                        <img src={% static "adopcion_perros/img/cats/1000010386.png"%} alt="Hermione">
+                        <div class="card-overlay">
+                            <span class="animal-type">GATO</span>
+                            <div class="card-info">
+                                <h4>Hermione</h4>
+                                <p>La Reina, RM</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="animal-card">
+                        <img src={% static "adopcion_perros/img/dogs/1000010304.png"%} alt="Conejo">
+                        <div class="card-overlay">
+                            <span class="animal-type orange">Perro</span>
+                            <div class="card-info">
+                                <h4>Conejo</h4>
+                                <p>Las Condes, RM</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="animal-card">
+                        <img src={% static "adopcion_perros/img/dogs/1000010388.png"%} alt="Kucho">
+                        <div class="card-overlay">
+                            <span class="animal-type red">PERRO</span>
+                            <div class="card-info">
+                                <h4>Kucho</h4>
+                                <p>La Reina, RM</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="animal-card">
+                        <img src={% static "adopcion_perros/img/dogs/1000010390.png"%} alt="Oma">
+                        <div class="card-overlay">
+                            <span class="animal-type orange">PERRO</span>
+                            <div class="card-info">
+                                <h4>Oma</h4>
+                                <p>La Pintana, RM</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="animal-card">
+                        <img src={% static "adopcion_perros/img/dogs/1000010300.png"%} alt="Miguel">
+                        <div class="card-overlay">
+                            <span class="animal-type purple">PERRO</span>
+                            <div class="card-info">
+                                <h4>Miguel</h4>
+                                <p>La Reina, RM</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="animal-card">
+                        <img src={% static "adopcion_perros/img/dogs/1000010454.png"%} alt="Nami">
+                        <div class="card-overlay">
+                            <span class="animal-type blue">PERRO</span>
+                            <div class="card-info">
+                                <h4>Nami</h4>
+                                <p>La Reina, RM</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="animal-card">
+                        <img src={% static "adopcion_perros/img/dogs/1000010454.png"%} alt="Cariño">
+                        <div class="card-overlay">
+                            <span class="animal-type red">GATO</span>
+                            <div class="card-info">
+                                <h4>Cariño</h4>
+                                <p>La Reina, RM</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="animal-card">
+                        <img src={% static "adopcion_perros/img/cats/1000010455.png"%} alt="Ana">
+                        <div class="card-overlay">
+                            <span class="animal-type green">GATO</span>
+                            <div class="card-info">
+                                <h4>Ana</h4>
+                                <p>La Antana, RM</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="animals-found-section">
+                <div class="section-header">
+                    <h3>Ver animales encontrados</h3>
+                    <a href="#" class="view-all">ver todos</a>
+                </div>
+                <div class="animal-cards-container small-cards">
+                    <div class="animal-card small">
+                        <img src={% static "adopcion_perros/img/dogs/1000010466.png"%} alt="Flaco le dice...">
+                        <div class="card-overlay-small">
+                            <span class="contact-info">+56944271821</span>
+                            <div class="card-info-small">
+                                <h4>Flaco.</h4>
+                                <ul>
+                                    <li><i class="fas fa-dog"></i> Perro</li>
+                                    <li><i class="fas fa-mars"></i> Macho</li>
+                                    <li><i class="fas fa-birthday-cake"></i> Adulto</li>
+                                    <li><i class="fas fa-map-marker-alt"></i> La Granja</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="animal-card small">
+                        <img src={% static "adopcion_perros/img/dogs/1000010304.png"%} alt="Santi">
+                        <div class="card-overlay-small">
+                            <div class="card-info-small">
+                                <h4>Santi</h4>
+                                <ul>
+                                    <li><i class="fas fa-dog"></i> Perro</li>
+                                    <li><i class="fas fa-mars"></i> Macho</li>
+                                    <li><i class="fas fa-birthday-cake"></i> 3 Año</li>
+                                    <li><i class="fas fa-map-marker-alt"></i> Santiago centro</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+            <div class="submit-animal-section">
+                <h3>Sube un animal</h3>
+                </div>
+            </section>
+            <br><br>
+
+            <section class="news-section">
+                <div class="section-header">
+                    <h3>Últimas Noticias</h3>
+                    <a href="noticias.html" class="view-all">Ver todas las noticias</a>
+                </div>
+                <p class="section-description">Mantente al día con las últimas novedades sobre adopciones, eventos y consejos para el cuidado de tus mascotas.</p>
+                <div class="news-articles-container">
+                    <div class="news-article-card">
+                        <img src="https://via.placeholder.com/300x150/FFDDC1/000000?text=Noticia+1" alt="Adoptan más rápido">
+                        <div class="news-content">
+                            <h4>¡Perros y gatos mayores son adoptados más rápido!</h4>
+                            <p class="news-date">10 de junio de 2025</p>
+                            <p class="news-summary">Un estudio reciente revela que los animales de compañía más grandes encuentran hogar más rápido de lo esperado, desafiando viejas percepciones.</p>
+                            <a href="#" class="read-more">Leer más</a>
+                        </div>
+                    </div>
+                    <div class="news-article-card">
+                        <img src="https://via.placeholder.com/300x150/D1E7DD/000000?text=Noticia+2" alt="Evento de adopción">
+                        <div class="news-content">
+                            <h4>Gran evento de adopción en el Parque Central este fin de semana</h4>
+                            <p class="news-date">8 de junio de 2025</p>
+                            <p class="news-summary">No te pierdas la oportunidad de conocer a tu nuevo mejor amigo. Habrá mascotas de todas las edades y tamaños esperando por ti.</p>
+                            <a href="#" class="read-more">Leer más</a>
+                        </div>
+                    </div>
+                    <div class="news-article-card">
+                        <img src="https://via.placeholder.com/300x150/DCDCDC/000000?text=Noticia+3" alt="Consejos para nuevos dueños">
+                        <div class="news-content">
+                            <h4>5 consejos esenciales para los nuevos dueños de cachorros</h4>
+                            <p class="news-date">5 de junio de 2025</p>
+                            <p class="news-summary">Desde la alimentación hasta el entrenamiento, aquí tienes todo lo que necesitas saber para darle a tu cachorro el mejor comienzo en la vida.</p>
+                            <a href="#" class="read-more">Leer más</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <br><br>
+
+        <section class="about-section" id="info">
+  <h3>Sobre</h3>
+  <p>
+¡Bienvenido a Huellitas!
+<br><br>
+En Huellitas, creemos que cada perro y gato merece un hogar lleno de amor. Nuestra misión es ser el puente entre esos corazones peludos que esperan en refugios y veterinarias de Tijuana y las familias que desean abrir sus puertas a un nuevo compañero.
+<br><br>
+Aquí encontrarás una base de datos completa y actualizada con información de todos los perros y gatos disponibles para adopción en la región. Desde el pequeño cachorro juguetón hasta el sabio gato adulto, cada perfil incluye detalles esenciales para ayudarte a encontrar a tu pareja perfecta. Nuestro objetivo es simplificar el proceso de búsqueda y adopción, haciendo que sea más fácil que nunca darle una segunda oportunidad a estos animales necesitados. ¡Explora, enamórate y anímate a cambiar una vida!
+
+  </p>
+</section>
+
+<section class="download-section" id="descarga">
+  <h3>Descargar la Aplicación</h3>
+  <p>Accede rápidamente desde tu dispositivo móvil. Descarga la app desde tu tienda favorita:</p>
+  <div class="store-buttons">
+    <a href="https://play.google.com/store" target="_blank" class="store-button playstore">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Disponible en Google Play">
+    </a>
+    <a href="https://www.apple.com/mx/app-store/" target="_blank" class="store-button appstore">
+      <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Disponible en App Store">
+    </a>
+  </div>
+</section>
+
+
+<section class="comment-section" id="comentarios">
+  <h3>Deja un comentario</h3>
+  <textarea placeholder="Escribe tu opinión o sugerencia..."></textarea>
+  <button>Enviar</button>
+</section>
+
+        </main>
+    </div>
+</body>
+</html>

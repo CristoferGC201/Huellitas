@@ -1,0 +1,44 @@
+{% extends 'adopcion_perros/base.html' %}
+{% load static %}
+
+{% block title %}Mis Solicitudes - Huellitas{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'adopcion_perros/css/estilos_formularios_adopcion2.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="form-container">
+  <div class="form-box">
+    <div class="form-header">
+      <h2>📄 Mis Solicitudes</h2>
+      <p>Revisa el estado de tus solicitudes de adopción.</p>
+    </div>
+
+    {% if solicitudes %}
+      <div class="solicitudes-list" style="display:flex; flex-direction:column; gap:16px; margin-top:16px;">
+        {% for s in solicitudes %}
+          <div class="solicitud-card" style="border:1px solid #ddd; border-radius:8px; padding:16px; background:#fff; box-shadow:2px 2px 8px rgba(0,0,0,0.05);">
+            <h3 style="margin:0 0 8px;">{{ s.mascota.nombre }} ({{ s.mascota.tipo }})</h3>
+            <p style="margin:4px 0;"><strong>Fecha:</strong> {{ s.fecha_solicitud|date:"d/m/Y H:i" }}</p>
+            <p style="margin:4px 0;"><strong>Estado:</strong>
+              {% if s.estado == 'Aprobado' %}
+                <span style="color:green; font-weight:bold;">Aprobado</span>
+              {% elif s.estado == 'Rechazado' %}
+                <span style="color:red; font-weight:bold;">Rechazado</span>
+              {% else %}
+                <span style="color:orange; font-weight:bold;">{{ s.estado }}</span>
+              {% endif %}
+            </p>
+            <p style="margin:4px 0; font-size:14px; color:#555;"><strong>Mensaje:</strong> {{ s.mensaje }}</p>
+          </div>
+        {% endfor %}
+      </div>
+    {% else %}
+      <p style="text-align:center; color:#666; margin-top:40px;">
+        Aún no has realizado ninguna solicitud de adopción.
+      </p>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

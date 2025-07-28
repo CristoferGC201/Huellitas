@@ -1,0 +1,88 @@
+{% extends 'adopcion_perros/base.html' %}
+{% load static %}
+
+{% block title %}Formulario de Adopción - Huellitas{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'adopcion_perros/css/estilos_formularios_adopcion2.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="form-container">
+  <div class="form-box">
+    <div class="form-header">
+      <h2>🐶 Solicitud de Adopción</h2>
+      <p>Completa el formulario para darle un hogar a una mascota</p>
+    </div>
+
+    {% if user.is_authenticated %}
+      <form id="adopcionForm">
+        {% csrf_token %}
+        <!-- Nombre y correo de usuario, solo lectura -->
+        <input type="text" name="nombre_completo" value="{{ request.user.username }}" readonly style="background:#f0f0f0; color:#333;">
+        <input type="email" name="email" value="{{ request.user.email }}" readonly style="background:#f0f0f0; color:#333;">
+        <!-- Teléfono editable -->
+        <input type="tel" name="telefono" placeholder="Teléfono (10 dígitos)" required pattern="[0-9]{10}" title="Debe tener 10 dígitos numéricos">
+        <!-- Mascota disponible -->
+        <select name="mascota" required>
+          <option value="">Selecciona una mascota</option>
+          {% for mascota in mascotas %}
+            <option value="{{ mascota.id }}">{{ mascota.nombre }} ({{ mascota.tipo }})</option>
+          {% endfor %}
+        </select>
+        <!-- Mensaje -->
+        <textarea name="mensaje" placeholder="Cuéntanos por qué deseas adoptar" required minlength="10" maxlength="500"></textarea>
+        <button type="submit">Enviar solicitud</button>
+      </form>
+
+      <div id="mensajeExito" class="success-message" style="display:none; margin-top:16px;">
+        ¡Solicitud enviada correctamente! ❤️
+      </div>
+
+      <script>
+      document.getElementById("adopcionForm").addEventListener("submit", async function(e) {
+        e.preventDefault();
+        const form = this;
+        const telefono = form.telefono.value.trim();
+        const mensaje = form.mensaje.value.trim();
+        const mascota = form.mascota.value;
+
+        if (!/^\d{10}$/.test(telefono)) return alert("El teléfono debe tener 10 dígitos numéricos.");
+        if (!mascota) return alert("Debes seleccionar una mascota.");
+        if (mensaje.length < 10) return alert("El mensaje debe tener al menos 10 caracteres.");
+
+        const datos = {
+          nombre_completo: form.nombre_completo.value,
+          email: form.email.value,
+          telefono: telefono,
+          mascota: mascota,
+          mensaje: mensaje
+        };
+        const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+
+        const response = await fetch("{% url 'api_adopciones' %}", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "X-CSRFToken": csrftoken
+          },
+          body: JSON.stringify(datos)
+        });
+
+        if (response.ok) {
+          document.getElementById("mensajeExito").style.display = "block";
+          form.reset();
+        } else {
+          const error = await response.json();
+          alert("Error al enviar la solicitud: " + JSON.stringify(error));
+        }
+      });
+      </script>
+    {% else %}
+      <p style="text-align:center; margin-top:20px;">
+        Debes <a href="{% url 'login' %}">iniciar sesión</a> o <a href="{% url 'registro' %}">registrarte</a> para solicitar una adopción.
+      </p>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}
